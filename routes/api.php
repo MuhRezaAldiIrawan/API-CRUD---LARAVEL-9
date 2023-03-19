@@ -20,6 +20,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// Route API For Login & Register
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
+
+// Route API For Barang
+Route::get('getalldata', [BarangController::class, 'index']);
+Route::get('onedata/{id}', [BarangController::class, 'onedata']);
 Route::post('addbarang', [BarangController::class, 'addbarang']);
+Route::post('updatebarang/{id}', [BarangController::class, 'updatebarang']);
+Route::post('deletebarang/{id}', [BarangController::class, 'deletebarang']);
