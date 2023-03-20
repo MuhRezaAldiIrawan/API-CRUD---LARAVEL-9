@@ -1,0 +1,267 @@
+{
+	"info": {
+		"_postman_id": "36782b5b-f958-48ea-982a-c9c3fe9880a7",
+		"name": "API CRUD LARAVEL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "admin",
+							"type": "default"
+						},
+						{
+							"key": "email",
+							"value": "admin@gmail.com",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "default"
+						},
+						{
+							"key": "confirm_password",
+							"value": "admin",
+							"type": "default"
+						},
+						{
+							"key": "role",
+							"value": "admin",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "testing@gmail.com",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Data Barang",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/getalldata",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"getalldata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get One Data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/onedata/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"onedata",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Data Barang",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nama_barang",
+							"value": "Laptop HP ",
+							"type": "default"
+						},
+						{
+							"key": "harga",
+							"value": "150000000",
+							"type": "default"
+						},
+						{
+							"key": "kategori",
+							"value": "ELEKTRONIK",
+							"type": "default"
+						},
+						{
+							"key": "produsen",
+							"value": "HP",
+							"type": "default"
+						},
+						{
+							"key": "detail",
+							"value": "HP Laptop i5 RTX 3050tI dengan spek luar biasa hebat dan tidak terkalahkan",
+							"type": "default"
+						},
+						{
+							"key": "foto",
+							"type": "file",
+							"src": "/C:/Users/Muh Reza Aldi Irawan/Pictures/789928.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/addbarang",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"addbarang"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Data Barang",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nama_barang",
+							"value": "Laptop ASUS ROG",
+							"type": "default"
+						},
+						{
+							"key": "harga",
+							"value": "20000000",
+							"type": "default"
+						},
+						{
+							"key": "produsen",
+							"value": "HP",
+							"type": "default"
+						},
+						{
+							"key": "detail",
+							"value": "Update data barang terbaru",
+							"type": "default"
+						},
+						{
+							"key": "foto",
+							"type": "file",
+							"src": "/C:/Users/Muh Reza Aldi Irawan/Pictures/3902302.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/updatebarang/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"updatebarang",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Data Barang",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
