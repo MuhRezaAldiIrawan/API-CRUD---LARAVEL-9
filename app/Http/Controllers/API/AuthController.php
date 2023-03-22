@@ -5,7 +5,8 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
-use Validator;
+use Illuminate\Support\Facades\Validator;
+
 use Illuminate\Support\Facades\Auth;
 
 
@@ -46,7 +47,8 @@ class AuthController extends Controller
     }
 
     public function login(Request $request)
-    {
+    { 
+
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $auth = Auth::user();
             $success['token'] = $auth->createToken('auth_token')->plainTextToken;
@@ -67,17 +69,14 @@ class AuthController extends Controller
         }
     }
 
-    public function logout(Request $request)
+    public function logout()
     {
+
         Auth::logout();
-
-        $request->session()->invalidate();
-
-        $request->session()->regenerateToken();
 
         return response()->json([
             'success' => true,
-            'message' => 'Login sukses',
+            'message' => 'Successfully logged out',
         ]);
     }
 }
