@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Validator;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 
 class AuthController extends Controller
@@ -43,7 +43,6 @@ class AuthController extends Controller
             'message' => 'Sukses register',
             'data' => $success
         ]);
-
     }
 
     public function login(Request $request)
@@ -66,5 +65,19 @@ class AuthController extends Controller
                 'data' => null
             ]);
         }
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Login sukses',
+        ]);
     }
 }

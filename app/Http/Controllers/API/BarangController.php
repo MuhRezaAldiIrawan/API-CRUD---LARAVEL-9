@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 
 
 
+
 class BarangController extends Controller
 {
     //Read All Data Barang
@@ -65,6 +66,7 @@ class BarangController extends Controller
         ]);
     }
 
+
     //Update Data Barang
     public function updatebarang(Request $request, $id)
     {
@@ -108,4 +110,6 @@ class BarangController extends Controller
             "message" => "Data Telah Berhasil Di Hapus",
         ]);
     }
+
+
 }
