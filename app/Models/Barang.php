@@ -20,6 +20,7 @@ class Barang extends Model
         'kategori',
         'produsen',
         'detail',
-        'foto'
+        'foto',
+        'stock'
     ];
 }

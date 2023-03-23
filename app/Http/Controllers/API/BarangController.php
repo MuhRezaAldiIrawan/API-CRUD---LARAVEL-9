@@ -35,6 +35,7 @@ class BarangController extends Controller
             'produsen' => 'required',
             'detail' => 'required',
             'foto' => 'image|file',
+            'stock' => 'required',
 
 
         ]);
@@ -77,6 +78,7 @@ class BarangController extends Controller
             'produsen' => 'required',
             'detail' => 'required',
             'foto' => 'image|file',
+            'stock' => 'required',
         ]);
 
 
@@ -88,7 +90,32 @@ class BarangController extends Controller
             'kategori' => $request->kategori,
             'produsen' => $request->produsen,
             'detail' => $request->detail,
-            'foto' => $request->file('foto')->store('barang-foto')
+            'foto' => $request->file('foto')->store('barang-foto'),
+            'stock' => $request->stock,
+
+        ]);
+
+        $data = Barang::where('id', '=', $barang->id)->get();
+
+        return response()->json([
+            "success" => true,
+            "message" => "Data Telah Berhasil Di Update",
+            "data" => $data
+        ]);
+    }
+
+    //Update Stock Barang
+    public function updatestock(Request $request, $id)
+    {
+        $barang = $request->validate([
+            'stock' => 'required',
+        ]);
+
+
+        $barang = Barang::findOrFail($id);
+
+        $barang->update([
+            'stock' => $request->stock,
 
         ]);
 
@@ -110,6 +137,4 @@ class BarangController extends Controller
             "message" => "Data Telah Berhasil Di Hapus",
         ]);
     }
-
-
 }
