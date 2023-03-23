@@ -32,3 +32,4 @@ Route::post('addbarang', [BarangController::class, 'addbarang']);
 Route::post('updatebarang/{id}', [BarangController::class, 'updatebarang']);
 Route::post('updatestock/{id}', [BarangController::class, 'updatestock']);
 Route::post('deletebarang/{id}', [BarangController::class, 'deletebarang']);
+Route::get('getalllog', [BarangController::class, 'getalllog']);

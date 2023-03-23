@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -13,14 +14,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('logbarang', function (Blueprint $table) {
-            $table->id();
-            $table->dateTime('waktu');
-            $table->string('nama_barang');
-            $table->string('harga');
-            $table->string('jumlah');
-            $table->timestamps();
-        });
+        DB::unprepared('CREATE TRIGGER update_stock AFTER UPDATE ON `barangs` FOR EACH ROW
+
+        BEGIN
+
+           INSERT INTO `logbarang` (`waktu`,`nama_barang`,`harga`,`jumlah`) VALUES (now(),new.nama_barang,new.harga,new.stock);
+
+        END');
     }
 
     /**
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('logbarang');
+        DB::unprepared('DROP TRIGGER `update_stock`');
     }
 };

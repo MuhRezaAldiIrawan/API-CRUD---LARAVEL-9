@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Barang;
+use App\Models\logbarang;
 use Illuminate\Http\Request;
 use Validator;
 use Illuminate\Support\Facades\DB;
@@ -135,6 +136,16 @@ class BarangController extends Controller
         return response()->json([
             "success" => true,
             "message" => "Data Telah Berhasil Di Hapus",
+        ]);
+    }
+
+    public function getalllog()
+    {
+        $logbarang = logbarang::all();
+        return response()->json([
+            "success" => true,
+            "message" => "All Data Barang",
+            "data" => $logbarang
         ]);
     }
 }
